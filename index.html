@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>国家安全你我他系列宣传片 | 总体国家安全观主题H5</title>
+        <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+    <div class="h5-container">
+        <!-- 纯五星红旗流动背景 -->
+        <div class="flag-bg">
+            <div class="big-star-flag">★</div>
+            <div class="small-star-flag star-pos1">★</div>
+            <div class="small-star-flag star-pos2">★</div>
+            <div class="small-star-flag star-pos3">★</div>
+            <div class="small-star-flag star-pos4">★</div>
+        </div>
+
+        <!-- 跳跃文字方框 -->
+        <div class="jumping-text"><i class="icon-flag"></i> 国家安全 人人有责 <i class="icon-flag"></i></div>
+
+        <div class="swipe-wrapper" id="scrollContainer">
+            <!-- 第1页：开篇 -->
+            <div class="page">
+                <div class="page-415"><span>4·15</span><small>全民国家安全教育日</small></div>
+                <div class="page-content-wrapper">
+                    <div class="series-prefix">📢 国家安全你我他系列宣传片</div>
+                    <div class="page-title">总体国家安全观</div>
+                    <div class="subtitle">统筹发展和安全 · 护航“十五五”新征程</div>
+                    <div class="desc-text">以人民安全为宗旨，以政治安全为根本，以经济安全为基础，军事科技文化社会安全为保障。答题闯关，共筑钢铁长城！</div>
+                    <div style="margin-top:20px;">
+                        <div class="score-board" id="globalScoreBoard">⭐ 通关进度: 0/5</div>
+                    </div>
+                    <div
+                        style="margin-top:30px; text-align:center; color:#FFD966; font-weight:bold; animation: jumpBox 2s infinite;">
+                        👇 向下滑动，开启挑战 👇
+                    </div>
+                </div>
+                <div class="footer-quote">✨ 点击屏幕任意处，绽放星星 ✨</div>
+            </div>
+
+            <!-- 动态生成5道答题页，第2-6页 -->
+            <div id="quizPages" style="display: contents;"></div>
+
+            <!-- 第7页：点击配对 + 滑动刻度 -->
+            <div class="page">
+                <div class="page-415"><span>4·15</span><small>互动体验</small></div>
+                <div class="page-content-wrapper">
+                    <div class="series-prefix">安全领域连连看</div>
+                    <div class="page-title">互动小课堂</div>
+                    <div class="subtitle">点击匹配相关领域</div>
+                    <div class="desc-text" style="font-size:12px;">操作说明：先点击左侧领域，再点击右侧对应内容。</div>
+
+                    <div class="match-area" id="matchArea">
+                        <div class="match-col" id="matchLeft"></div>
+                        <div class="match-col" id="matchRight"></div>
+                    </div>
+                    <div id="pairResult"
+                        style="text-align:center; height:20px; font-weight:bold; color:#FFD966; font-size:13px;"></div>
+
+                    <div class="energy-container">
+                        <div style="color:#FFE4B5; font-size:13px; font-weight:bold; margin-bottom:15px;"><i
+                                class="icon-flag"></i> 快速连击！为国家安全充能</div>
+                        <div class="energy-circle" id="energyCircle">
+                            <div class="energy-value" id="energyValue">0<small>%</small></div>
+                        </div>
+                        <button class="charge-btn" id="chargeBtn">⚡ 狂按充能</button>
+                        <div id="energyMsg" style="margin-top:12px; font-size:12px; color:#FFB347; height: 16px;">
+                            如果不点击，能量会流失哦！</div>
+                    </div>
+                </div>
+                <div class="footer-quote">提升意识，共筑防线</div>
+            </div>
+
+            <!-- 第8页：记忆翻牌游戏 -->
+            <div class="page">
+                <div class="page-415"><span>4·15</span><small>记忆匹配</small></div>
+                <div class="page-content-wrapper">
+                    <div class="series-prefix">翻牌解锁知识</div>
+                    <div class="page-title">国安知识连连看</div>
+                    <div class="desc-text" style="font-size:13px;">翻开两张相同的卡片，即可解锁对应的国家安全知识！</div>
+                    <div id="memoryGameGrid" class="memory-grid"></div>
+                    <div id="memoryCounter"
+                        style="text-align:center; font-weight:bold; color:#FFD966; font-size:15px; margin-top: 10px;">
+                        已解锁 0 / 6 个知识点</div>
+                </div>
+                <div class="footer-quote">保持警惕，提升国家安全意识</div>
+            </div>
+
+            <!-- 知识解锁弹窗 -->
+            <div class="knowledge-modal" id="knowledgeModal">
+                <div class="modal-content">
+                    <div class="modal-title" id="modalTitle">知识解锁</div>
+                    <div class="modal-desc" id="modalDesc">这里是详细的知识点描述内容...</div>
+                    <button class="modal-btn" id="modalCloseBtn">我知道了</button>
+                </div>
+            </div>
+
+            <!-- 第9页：心愿墙 + 致敬英雄 -->
+            <div class="page">
+                <div class="page-415"><span>4·15</span><small>心愿·致敬</small></div>
+                <div class="page-content-wrapper">
+                    <div class="series-prefix">放飞心愿</div>
+                    <div class="page-title">家国心愿墙</div>
+                    <div class="wish-wall" id="wishWall"></div>
+                    <div style="display: flex; gap:8px; margin-top:8px;">
+                        <input type="text" id="wishInput" placeholder="写下你的心愿..."
+                            style="flex:1; padding:10px 16px; border-radius:60px; border:none; outline:none; background:rgba(255,255,240,0.95); font-size:13px;">
+                        <button id="flyWishBtn"
+                            style="background:linear-gradient(135deg, #C41E3A, #A0152E); color:white; border:none; border-radius:60px; padding:0 16px; font-weight:bold; font-size:13px;">放飞⭐</button>
+                    </div>
+
+                    <div class="hero-card">
+                        <div style="font-size:36px; margin-bottom:8px;">🛡️👮‍♀️🚔</div>
+                        <div style="font-weight:800; color:#FFD966; font-size:16px;">致敬国家安全守护者</div>
+                        <div style="color:#FFF0D0; font-size:12px; margin-top:4px;">人民警察·国安尖兵·边防战士</div>
+                        <button class="salute-btn" id="saluteBtn">敬礼献花 🌹</button>
+                        <div id="saluteMsg" style="margin-top:10px; font-size:13px; color:#FFD966; height:20px;"></div>
+                    </div>
+                </div>
+                <div class="footer-quote">岁月静好，是因为有人负重前行</div>
+            </div>
+
+            <!-- 第10页：成就总结 -->
+            <div class="page">
+                <div class="page-415"><span>4·15</span><small>护航新征程</small></div>
+                <div class="page-content-wrapper">
+                    <div class="series-prefix">总体国家安全观</div>
+                    <div class="page-title">护航“十五五”新征程</div>
+                    <div class="desc-text" style="font-size:13px;">新时代国家安全事业取得历史性成就，人民防线不断巩固。</div>
+
+                    <div class="achievement-grid">
+                        <div class="achieve-tag">政治安全·稳固</div>
+                        <div class="achieve-tag">经济安全·韧性</div>
+                        <div class="achieve-tag">网络安全·坚实</div>
+                        <div class="achieve-tag">数据安全·完善</div>
+                        <div class="achieve-tag">生物安全·有力</div>
+                        <div class="achieve-tag">生态安全·青山</div>
+                        <div class="achieve-tag">海外利益·周全</div>
+                        <div class="achieve-tag">科技安全·自强</div>
+                    </div>
+
+                    <div class="hero-card"
+                        style="background:rgba(196,30,58,0.3); border-color:#C41E3A; margin-top:30px;">
+                        <div style="color:#FFD966; font-weight:bold; font-size:16px;"><i class="icon-flag"></i>
+                            坚定不移贯彻总体国家安全观 <i class="icon-flag"></i></div>
+                        <div style="font-size:14px; margin-top:12px; color:#FFF; font-weight:bold;">国家安全机关举报受理电话</div>
+                        <div
+                            style="font-size:28px; font-weight:900; color:#FFD966; letter-spacing:2px; margin-top:4px;">
+                            12339</div>
+                    </div>
+                </div>
+                <div class="footer-quote">国家安全 人人有责 人人尽责</div>
+            </div>
+        </div>
+
+        <div class="nav-dots" id="navDots"></div>
+        <div class="watermark"><i class="icon-flag"></i> 湖南外国语职业学院学子原创 · 国家安全你我同行 <i class="icon-flag"></i></div>
+    </div>
+
+<script src="assets/main.js"></script>
+</body>
+
+</html>
