@@ -185,21 +185,6 @@
             display: none;
         }
 
-        /* CSS 绘制的小国旗图标（已替换为 SVG 内联背景以保证全平台兼容性） */
-        .icon-flag {
-            display: inline-block;
-            width: 21px;
-            height: 14px;
-            vertical-align: middle;
-            margin: 0 4px;
-            border-radius: 2px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-            background-color: #de2910;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20"><rect width="30" height="20" fill="%23de2910"/><path fill="%23ffde00" d="M5,2 l1.5,4.5 h4.5 l-3.5,2.5 l1.5,4.5 l-4,-3 l-4,3 l1.5,-4.5 l-3.5,-2.5 h4.5 z"/><path fill="%23ffde00" d="M10,2 l0.5,1.5 h1.5 l-1,1 l0.5,1.5 l-1.5,-1 l-1.5,1 l0.5,-1.5 l-1,-1 h1.5 z"/><path fill="%23ffde00" d="M12,5 l0.5,1.5 h1.5 l-1,1 l0.5,1.5 l-1.5,-1 l-1.5,1 l0.5,-1.5 l-1,-1 h1.5 z"/><path fill="%23ffde00" d="M12,9 l0.5,1.5 h1.5 l-1,1 l0.5,1.5 l-1.5,-1 l-1.5,1 l0.5,-1.5 l-1,-1 h1.5 z"/><path fill="%23ffde00" d="M10,12 l0.5,1.5 h1.5 l-1,1 l0.5,1.5 l-1.5,-1 l-1.5,1 l0.5,-1.5 l-1,-1 h1.5 z"/></svg>');
-            background-size: cover;
-            background-position: center;
-        }
-
         /* 跳跃文字框动画 */
         .jumping-text {
             position: absolute;
